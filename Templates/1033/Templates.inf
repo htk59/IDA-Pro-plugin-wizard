@@ -1,0 +1,8 @@
+readme.txt
+resource.h
+root.rc
+[!if USE_MANIFEST]
+root.manifest
+[!endif]
+root.h
+OpenFile | root.cpp

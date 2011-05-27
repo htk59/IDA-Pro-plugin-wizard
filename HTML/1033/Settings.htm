@@ -1,0 +1,938 @@
+<HTML DIR="LTR"> 
+   <HEAD>
+      <TITLE>IDA Pro Plugin Wizard</TITLE> 
+      <META NAME="vs_targetSchema" CONTENT="http://schemas.microsoft.com/intellisense/ie5">
+      <!-- LINK REL="stylesheet" HREF="../../1033/NewStyles.css" ID="LINKURL"-->
+      <META HTTP-EQUIV="MSThemeCompatible" CONTENT="Yes">
+      <STYLE TYPE="text/css">@import url();
+      </STYLE>
+      <SCRIPT>
+          var oWizard = window.external;
+          var strPath = oWizard.FindSymbol("SCRIPT_COMMON_PATH");
+          if (strPath != null && strPath != "")
+          {
+              document.styleSheets(0).imports(0).href = strPath + "/NewStyles.css";
+          }
+          else
+          {
+              var strURL = GetCommonScriptPath();
+              strURL += "/NewStyles.css";
+              document.styleSheets(0).imports(0).href = strURL;
+          }
+      </SCRIPT>
+   </HEAD>
+   <BODY BGCOLOR="BUTTONFACE" TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0" BOTTOMMARGIN="0"
+         ONLOAD="InitDocument(document);"
+         ONKEYDOWN="if (!bValidating) OnKey();"
+         ONKEYPRESS="if (!bValidating) OnPress();">
+      <TABLE CLASS="ONE" HEIGHT="100%" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+         <COL CLASS="LinkPane">
+         <COL> 
+         <!--OPEN OF INTRODUCTORY INFORMATION TABLE//-->
+         <TR VALIGN="TOP">
+            <TD HEIGHT="79" WIDTH="100%" COLSPAN="2"> 
+               <TABLE CLASS="TWO" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                  <COL WIDTH="12">
+                  <COL>
+                  <COL WIDTH="12"> 
+                  <TR>
+                     <TD VALIGN="TOP" HEIGHT="12" WIDTH="12">
+                        &nbsp; 
+                     </TD>
+                     <TD VALIGN="TOP" HEIGHT="12">
+                        &nbsp; 
+                     </TD>
+                     <TD VALIGN="TOP" HEIGHT="12" WIDTH="12">
+                        &nbsp; 
+                     </TD>
+                     <TD CLASS="IMAGE" VALIGN="BOTTOM" WIDTH="110" ROWSPAN="2"> 
+                        <DIV CLASS="SMALLA" ID="PROCESSOR_MODULE_IMAGE" STYLE="DISPLAY:BLOCK;"> 
+                           <IMG CLASS="SMALLEST" SRC="../../Images/IDAProWizard.gif" ALT="" BORDER="0"> 
+                        </DIV>
+                        <DIV CLASS="SMALL" ID="PLUGIN_MODULE_IMAGE" STYLE="DISPLAY:NONE;"> 
+                           <IMG CLASS="SMALL" SRC="../../Images/IDAProWizard.gif" ALT="" BORDER="0"> 
+                        </DIV>
+                        <DIV CLASS="SMALL" ID="LOADER_MODULE_IMAGE" STYLE="DISPLAY:NONE;"> 
+                           <IMG CLASS="SMALL" SRC="../../Images/IDAProLoader.gif" ALT="" BORDER="0"> 
+                        </DIV>
+                        <DIV CLASS="SMALL" ID="DEBUGGER_MODULE_IMAGE" STYLE="DISPLAY:NONE;"> 
+                           <IMG CLASS="SMALL" SRC="../../Images/IDAProWizard.gif" ALT="" BORDER="0"> 
+                        </DIV>
+                        <DIV CLASS="SMALL" ID="DECOMPILER_MODULE_IMAGE" STYLE="DISPLAY:NONE;"> 
+                           <IMG CLASS="SMALL" SRC="../../Images/IDAProHexRay.gif" ALT="" BORDER="0"> 
+                        </DIV>
+                     </TD>
+                     <TD VALIGN="TOP" HEIGHT="12" WIDTH="6" ROWSPAN="2">
+                        &nbsp; 
+                     </TD>
+                  </TR>
+                  <TR>
+                     <TD VALIGN="TOP" HEIGHT="65" WIDTH="12">
+                        &nbsp; 
+                     </TD>
+                     <TD VALIGN="TOP" HEIGHT="65"> 
+                        <H4 CLASS="HEAD" ID="HEAD">Welcome to IDA Pro Plugin Wizard</H4>
+                        <P CLASS="SUBHEAD" ID="SUBHEAD">This wizard generates a IDA Pro Plugin project. The project can be a plugin module, processor module, loader module, debugger module, or a decompiler module.</P> 
+                     </TD>
+                     <TD VALIGN="TOP" HEIGHT="65" WIDTH="12">
+                        &nbsp; 
+                     </TD>
+                  </TR>
+                  <TR>
+                     <TD CLASS="RULE" VALIGN="TOP" HEIGHT="2" COLSPAN="5"> 
+                        <TABLE HEIGHT="1" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                           <TR VALIGN="TOP">
+                              <TD HEIGHT="1" WIDTH="100%" BGCOLOR="BUTTONSHADOW">
+                                 <!--IMG SRC="../../Images/spacer.gif" WIDTH="1" HEIGHT="1" ALT=""-->
+                              </TD>
+                              <TD HEIGHT="1" WIDTH="1" BGCOLOR="WINDOW">
+                                 <!--IMG SRC="../../Images/spacer.gif" WIDTH="1" HEIGHT="1" ALT=""-->
+                              </TD>
+                           </TR>
+                        </TABLE>
+                     </TD>
+                  </TR>
+               </TABLE>
+            </TD>
+         </TR>
+         <!--CLOSE OF INTRODUCTORY INFORMATION TABLE//-->
+         <!--OPEN OF NAVIGATION, CONTENT, AND BUTTON TABLES//-->
+         <TR VALIGN="TOP">
+            <TD CLASS="Three" HEIGHT="100%" VALIGN="TOP" WIDTH="100%"> 
+               <TABLE CLASS="fixedSize" HEIGHT="100%" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                  <TR VALIGN="TOP">
+                     <TD CLASS="threeCustom" VALIGN="TOP"> 
+                        <!--OPEN OF NAVIGATION TABLE//-->
+                        <TABLE CLASS="THREE" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                           <COL WIDTH="12">
+                           <COL>
+                           <COL WIDTH="1"> 
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="12" COLSPAN="3">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="100%">
+                                 &nbsp; 
+                              </TD>
+                              <!--OPEN OF NAVIGATIONAL LINKS//-->
+                              <TD HEIGHT="100%" VALIGN="TOP"> 
+                                 <DIV CLASS="LINK"> 
+                                    <TABLE CLASS="LINKTEXT" HEIGHT="28" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                       <TR VALIGN="MIDDLE">
+                                          <TD WIDTH="162"> 
+                                             <SPAN CLASS="ACTIVELINK" ID="Default" ONCLICK="Next(document, 'Default.htm');" TABINDEX="1"
+                                                   TITLE="Examine an overview of selections.">
+                                                Overview
+                                             </SPAN>
+                                          </TD>
+                                          <TD WIDTH="4"> 
+                                             <IMG SRC="../../Images/spacer.gif" WIDTH="4" HEIGHT="1"> 
+                                          </TD>
+                                       </TR>
+                                    </TABLE>
+                                 </DIV>
+                                 <DIV CLASS="LINKSELECTED"> 
+                                    <SPAN CLASS="VERTLINE1"> 
+                                       <IMG SRC="../../Images/spacer.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"> 
+                                    </SPAN>
+                                    <SPAN CLASS="HORILINE1"> 
+                                       <TABLE WIDTH="167" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                          <TR VALIGN="TOP">
+                                             <TD CLASS="DOTTEDLINE" HEIGHT="1"> 
+                                             </TD>
+                                          </TR>
+                                          <TR VALIGN="TOP">
+                                             <TD HEIGHT="100%"> 
+                                                <IMG SRC="../../Images/spacer.gif" WIDTH="1" HEIGHT="28" ALT="" BORDER="0"> 
+                                             </TD>
+                                          </TR>
+                                          <TR VALIGN="TOP">
+                                             <TD CLASS="DOTTEDLINE" HEIGHT="1"> 
+                                             </TD>
+                                          </TR>
+                                       </TABLE>
+                                    </SPAN> 
+                                    <TABLE CLASS="LINKTEXTSELECTED" WIDTH="160" HEIGHT="28" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                       <TR VALIGN="MIDDLE">
+                                          <TD WIDTH="100%"> 
+                                             <SPAN ID="Settings" TITLE="Specify the type of plugin you will build with this project and the options or libraries you want supported.">
+                                                Settings...
+                                             </SPAN> 
+                                          </TD>
+                                          <TD WIDTH="4"> 
+                                             <IMG SRC="../../Images/spacer.gif" HEIGHT="1" WIDTH="4"> 
+                                          </TD>
+                                       </TR>
+                                    </TABLE>
+                                 </DIV>
+                                 <DIV CLASS="LINK"> 
+                                    <TABLE CLASS="LINKTEXT" WIDTH="100%" HEIGHT="28" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                       <TR VALIGN="MIDDLE">
+                                          <TD WIDTH="100%"> 
+                                             <SPAN CLASS="ACTIVELINK" ID="Features" ONCLICK="Next(document, 'Features.htm');" TABINDEX="2"
+                                                   TITLE="">
+                                                Features
+                                             </SPAN> 
+                                          </TD>
+                                          <TD WIDTH="4"> 
+                                             <IMG SRC="../../Images/spacer.gif" WIDTH="4" HEIGHT="1"> 
+                                          </TD>
+                                       </TR>
+                                    </TABLE>
+                                 </DIV>
+                              </TD>
+                              <!--CLOSE OF NAVIGATIONAL LINKS//-->
+                              <TD WIDTH="1"> 
+                                 <DIV CLASS="VERTLINE"> 
+                                    <IMG ALT="" BORDER="0" HEIGHT="1"
+                                         SRC="../../Images/spacer.gif" WIDTH="1"> 
+                                 </DIV>
+                              </TD>
+                           </TR>
+                        </TABLE>
+                        <!--CLOSE OF NAVIGATION TABLE//-->
+                     </TD>
+                  </TR>
+               </TABLE>
+            </TD>
+            <TD HEIGHT="100%" VALIGN="TOP"> 
+
+            <!--OPEN OF CONTENT AND BUTTON TABLE//-->
+               <TABLE CLASS="ONE" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                  <COL WIDTH="100%"> 
+                  <TR VALIGN="TOP">
+                     <TD HEIGHT="100%">
+                        <!--OPEN OF CONTENT//-->
+                        <TABLE CLASS="CONTENT" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                           <COL WIDTH="12"> 
+                           <COL WIDTH="398"> 
+                           <COL WIDTH="12"> 
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="9" COLSPAN="3">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="TOP"> 
+                                 <TABLE CLASS="FixedSize" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                    <COL> 
+                                    <COL WIDTH="12"> 
+                                    <COL> 
+                                    <TR>
+                                       <TD VALIGN="TOP"> 
+                                          <SPAN CLASS="itemTextTop" ID="PLUGIN_TYPE_SPAN" TITLE="">
+                                             Plugin type: 
+                                             <P CLASS="Spacer">
+                                                &nbsp;
+                                             </P> 
+                                             <INPUT CLASS="Radio" TYPE="radio" NAME="PLUGINTYPE"
+                                                    ID="PLUGIN_MODULE" ACCESSKEY="P" TITLE="Extending functionality in IDA."
+                                                    OnPropertyChange="OnAppType();"> 
+                                             <DIV CLASS="itemTextRadioB" ID="PLUGIN_MODULE_DIV" TITLE="Extending functionality in IDA."> 
+                                                <LABEL FOR="PLUGIN_MODULE" ID="PLUGIN_MODULE_LABEL"><U>P</U>lug-in</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="Radio" TYPE="radio" NAME="PLUGINTYPE"
+                                                    ID="DECOMPILER_MODULE" ACCESSKEY="e" TITLE="Creates a decompiler module."
+                                                    OnPropertyChange="OnAppType();"> 
+                                             <DIV CLASS="itemTextRadioB" ID="DECOMPILER_MODULE_DIV" TITLE="Creates a decompiler module."> 
+                                                <LABEL FOR="DECOMPILER_MODULE" ID="DECOMPILER_MODULE_LABEL">D<U>e</U>compiler module</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="Radio" TYPE="radio" NAME="PLUGINTYPE"
+                                                    ID="DEBUGGER_MODULE" ACCESSKEY="D" TITLE="Adding support for debugging on different platforms and/or interacting with other debuggers / remote debugging."
+                                                    OnPropertyChange="OnAppType();"> 
+                                             <DIV CLASS="itemTextRadioB" ID="DEBUGGER_MODULE_DIV" TITLE="Adding support for debugging on different platforms and/or interacting with other debuggers / remote debugging."> 
+                                                <LABEL FOR="DEBUGGER_MODULE" ID="DEBUGGER_MODULE_LABEL"><U>D</U>ebugger</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="Radio" TYPE="radio" NAME="PLUGINTYPE"
+                                                    ID="LOADER_MODULE" ACCESSKEY="L" TITLE="Adding support for different executable file formats."
+                                                    OnPropertyChange="OnAppType();"> 
+                                             <DIV CLASS="itemTextRadioB" ID="LOADER_MODULE_DIV" TITLE="Adding support for different executable file formats."> 
+                                                <LABEL FOR="LOADER_MODULE" ID="LOADER_MODULE_LABEL"><U>L</U>oader</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="Radio" TYPE="radio" NAME="PLUGINTYPE"
+                                                    ID="PROCESSOR_MODULE" ACCESSKEY="s" TITLE="Adding support for different processor architectures. Also known as IDP (IDa Processor) modules."
+                                                    OnPropertyChange="OnAppType();"> 
+                                             <DIV CLASS="itemTextRadioB" ID="PROCESSOR_MODULE_DIV" TITLE="Adding support for different processor architectures. Also known as IDP (IDa Processor) modules."> 
+                                                <LABEL FOR="PROCESSOR_MODULE" ID="PROCESSOR_MODULE_LABEL">Proce<U>s</U>sor</LABEL> 
+                                             </DIV>
+                                          </SPAN> 
+                                          <P CLASS="ElementSpacer">
+                                             &nbsp;
+                                          </P> 
+                                          <SPAN CLASS="itemTextTop" ID="ADD_SUPPORT_SPAN" TITLE="">
+                                             Add support for: 
+                                             <P CLASS="Spacer">
+                                                &nbsp;
+                                             </P> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="support"
+                                                    ID="SUPPORT_QT" ACCESSKEY="Q" TITLE="Specifies that the project will statically link to the QT DLL."
+                                                    OnPropertyChange="OnQtChange();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="SUPPORT_QT_TITLE" TITLE="Specifies that the project will statically link to the QT DLL.">
+                                                <LABEL FOR="SUPPORT_QT" ID="SUPPORT_QT_LABEL"><U>Q</U>t</LABEL>
+                                             </DIV>
+                                             <BR>
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="support"
+                                                    ID="X64_SUPPORT" ACCESSKEY="6" TITLE="Generate configuration for IDA64."> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="X64_SUPPORT_TITLE" TITLE="Generate configuration for IDA64.">
+                                                <LABEL FOR="X64_SUPPORT" ID="X64_SUPPORT_LABEL"><U>6</U>4-bit</LABEL>
+                                             </DIV>
+                                          </SPAN> 
+                                       </TD>
+                                       <TD VALIGN="TOP" WIDTH="12">
+                                          &nbsp; 
+                                       </TD>
+                                       <TD VALIGN="TOP"> 
+                                          <SPAN CLASS="itemTextTop" ID="ADDITIONAL_OPTIONS_SPAN" TITLE="">
+                                             Additional options: 
+                                             <P CLASS="Spacer">
+                                                &nbsp;
+                                             </P> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="EMPTY_PROJECT" ACCESSKEY="y"
+                                                    TITLE="This option creates a .vcxproj file based on the project name you specified but adds no files to it. Use this when you intend to supply all your own source files."
+                                                    OnPropertyChange="OnEmptyProject();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="EMPTY_PROJECT_TITLE"
+                                                  TITLE="This option creates a .vcxproj file based on the project name you specified but adds no files to it. Use this when you intend to supply all your own source files.">
+                                                <LABEL FOR="EMPTY_PROJECT" ID="EMPTY_PROJECT_LABEL">Empt<U>y</U> project</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="PRE_COMPILED_HEADER" ACCESSKEY="h"
+                                                    TITLE="Specifies use of a precompiled header file."> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PRE_COMPILED_HEADER_TITLE" TITLE="Specifies use of a precompiled header file.">
+                                                <LABEL FOR="PRE_COMPILED_HEADER" ID="PRE_COMPILED_HEADER_LABEL">Precompiled <U>h</U>eader</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="UNICODE" ACCESSKEY="U"
+                                                    TITLE="Specifies use of a UNICODE character set." OnPropertyChange="OnUnicode();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="UNICODE_TITLE" TITLE="Specifies use of a UNICODE character set.">
+                                                <LABEL FOR="UNICODE" ID="UNICODE_LABEL"><U>U</U>nicode project</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="MANIFEST" ACCESSKEY="r"
+                                                    TITLE="Specifies that the linker should create a side-by-side manifest file."> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="MANIFEST_TITLE" TITLE="Specifies that the linker should create a side-by-side manifest file.">
+                                                <LABEL ID="MANIFEST_LABEL" FOR="MANIFEST">Common Control <u>M</u>anifest</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="NO_DEFAULT_LIB" ACCESSKEY="N"
+                                                    TITLE="Ignore all default libraries (/NODEFAULTLIB)."
+                                                    OnPropertyChange="OnNoDefaultLib();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="NO_DEFAULT_LIB_TITLE" TITLE="Ignore all default libraries (/NODEFAULTLIB).">
+                                                <LABEL FOR="NO_DEFAULT_LIB" ID="NO_DEFAULT_LIB_LABEL"><U>N</U>o default libraries</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="POSTBUILD_COPY" ACCESSKEY="b" TITLE=""> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="POSTBUILD_COPY_TITLE" TITLE=""> 
+                                                <LABEL FOR="POSTBUILD_COPY" ID="POSTBUILD_COPY_LABEL">Post<U>b</U>uild Copy</LABEL> 
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" ID="VERBOSE_COMMENTS" ACCESSKEY="b" TITLE=""> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="VERBOSE_COMMENTS_TITLE" TITLE=""> 
+                                                <LABEL FOR="VERBOSE_COMMENTS" ID="VERBOSE_COMMENTS_LABEL"><U>V</U>erbose comments in code</LABEL> 
+                                             </DIV>
+                                          </SPAN> 
+                                       </TD>
+                                    </TR>
+                                 </TABLE>
+                              </TD>
+                              <TD VALIGN="TOP" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" COLSPAN="3">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="TOP"> 
+                                 <P CLASS="ElementSpacer">
+                                    &nbsp;
+                                 </P> 
+                                 <SPAN CLASS="itemTextTop" ID="LOADER_FLAGS_SPAN" TITLE="">Loader Flags: 
+                                    <P CLASS="Spacer">
+                                       &nbsp;
+                                    </P> 
+                                    <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="LDRF_RELOAD" ACCESSKEY="o"
+                                           TITLE="loader recognizes NEF_RELOAD flag."
+                                           OnPropertyChange="OnLoaderFlags();"> 
+                                    <DIV CLASS="itemTextCheckboxB" ID="LDRF_RELOAD_TITLE" TITLE="loader recognizes NEF_RELOAD flag.">
+                                       <LABEL FOR="LDRF_RELOAD" ID="LDRF_RELOAD_LABEL">Rel<U>o</U>ad</LABEL>
+                                    </DIV>
+                                 </SPAN> 
+                                 <SPAN CLASS="itemTextTop" ID="PLUGIN_FLAGS_SPAN" TITLE="">Plugin Flags: 
+                                    <P CLASS="Spacer">
+                                       &nbsp;
+                                    </P> 
+                                    <TABLE CLASS="FixedSize" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                       <COL WIDTH="193"> 
+                                       <COL WIDTH="12"> 
+                                       <COL WIDTH="193">
+                                       <TR>
+                                          <TD VALIGN="TOP"> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_MOD" ACCESSKEY="o"
+                                                    TITLE="Plugin changes the database."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_MOD_TITLE" TITLE="Plugin changes the database."> 
+                                                <LABEL FOR="PLUGIN_MOD" ID="PLUGIN_MOD_LABEL">Plugin M<U>o</U>d</LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_DRAW" ACCESSKEY="w"
+                                                    TITLE="IDA should redraw everything after calling the plugin."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_DRAW_TITLE" TITLE="IDA should redraw everything after calling the plugin.">
+                                                <LABEL FOR="PLUGIN_DRAW" ID="PLUGIN_DRAW_LABEL">Plugin Dra<U>w</U></LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_HIDE" ACCESSKEY="H"
+                                                    TITLE="Plugin should not appear in the Edit, Plugins menu."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_HIDE_TITLE" TITLE="Plugin should not appear in the Edit, Plugins menu.">
+                                                <LABEL FOR="PLUGIN_HIDE" ID="PLUGIN_HIDE_LABEL">Plugin <U>H</U>ide</LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_SEG" ACCESSKEY="H"
+                                                    TITLE="Plugin may be applied only if the current address belongs to a segment."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_SEG_TITLE" TITLE="Plugin may be applied only if the current address belongs to a segment.">
+                                                <LABEL FOR="PLUGIN_SEG" ID="PLUGIN_SEG_LABEL">Plugin <U>H</U>ide</LABEL>
+                                             </DIV>
+                                          </TD>
+                                          <TD VALIGN="TOP" WIDTH="12">
+                                             &nbsp; 
+                                          </TD>
+                                          <TD VALIGN="TOP"> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_UNL" ACCESSKEY="a"
+                                                    TITLE="Unload the plugin immediately after calling 'run'."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_UNL_TITLE" TITLE="Unload the plugin immediately after calling 'run'.">
+                                                <LABEL FOR="PLUGIN_UNL" ID="PLUGIN_UNL_LABEL">Plugin Unlo<U>a</U>d</LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_FIX" ACCESSKEY="x"
+                                                    TITLE="Load plugin when IDA starts and keep it in the memory until IDA stops."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_FIX_TITLE" TITLE="Load plugin when IDA starts and keep it in the memory until IDA stops.">
+                                                <LABEL FOR="PLUGIN_FIX" ID="PLUGIN_FIX_LABEL">Plugin Fi<U>x</U></LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_PROC" ACCESSKEY="c"
+                                                    TITLE="Load plugin when a processor module is loaded and keep it until the processor module is unloaded."
+                                                    OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_PROC_TITLE" TITLE="Load plugin when a processor module is loaded and keep it until the processor module is unloaded.">
+                                                <LABEL FOR="PLUGIN_PROC" ID="PLUGIN_PROC_LABEL">Plugin Pro<U>c</U></LABEL>
+                                             </DIV>
+                                             <BR> 
+                                             <INPUT CLASS="CheckBoxA" TYPE="checkbox" NAME="Flags" ID="PLUGIN_DBG" ACCESSKEY="g"
+                                                    TITLE="A debugger plugin. init() should put the address of debugger_t to dbg."
+                                                 OnPropertyChange="OnPluginFlags();"> 
+                                             <DIV CLASS="itemTextCheckboxB" ID="PLUGIN_DBG_TITLE" TITLE="A debugger plugin. init() should put the address of debugger_t to dbg.">
+                                                <LABEL FOR="PLUGIN_DBG" ID="PLUGIN_DBG_LABEL">Debu<U>g</U>ger Plugin</LABEL> 
+                                             </DIV>
+                                          </TD>
+                                       </TR>
+                                    </TABLE>
+                                 </SPAN> 
+                              </TD>
+                              <TD VALIGN="TOP" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="100%" COLSPAN="3">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                        </TABLE>
+                        <!--CLOSE OF CONTENT//-->
+                     </TD>
+                  </TR>
+                  <TR VALIGN="BOTTOM">
+                     <TD> 
+                        <!--OPEN OF BUTTON HTML//-->
+                        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                           <COL WIDTH="12">
+                           <COL>
+                           <COL WIDTH="75">
+                           <COL WIDTH="4">
+                           <COL WIDTH="75">
+                           <COL WIDTH="4">
+                           <COL WIDTH="75">
+                           <COL WIDTH="12">
+                           <TR>
+                              <TD CLASS="RULE" VALIGN="TOP" HEIGHT="2" COLSPAN="8">
+                                 <TABLE HEIGHT="1" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                                    <TR VALIGN="TOP">
+                                       <TD HEIGHT="1" WIDTH="100%" BGCOLOR="BUTTONSHADOW">
+                                       </TD>
+                                       <TD HEIGHT="1" WIDTH="1" BGCOLOR="WINDOW">
+                                       </TD>
+                                    </TR>
+                                 </TABLE>
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="11" COLSPAN="8">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="TOP" HEIGHT="23">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="75"> 
+                                 <BUTTON CLASS="BUTTONS" ACCESSKEY="F" ID="FinishBtn" ONCLICK="OnFinish(document);">
+                                    <U>F</U>inish
+                                 </BUTTON>
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="4">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="75"> 
+                                 <BUTTON CLASS="BUTTONS" ACCESSKEY="C" ID="CancelBtn" ONCLICK="oWizard.Finish(document, 'cancel');">
+                                    <U>C</U>ancel
+                                 </BUTTON>
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="4">
+                                 &nbsp; 
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="75"> 
+                                 <BUTTON CLASS="BUTTONS" ACCESSKEY="H" ID="HelpBtn" ONCLICK="oWizard.OnHelp('vc.appwiz.custom.overview');">
+                                    <U>H</U>elp
+                                 </BUTTON>
+                              </TD>
+                              <TD VALIGN="MIDDLE" HEIGHT="23" WIDTH="12">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                           <TR>
+                              <TD VALIGN="TOP" HEIGHT="12" COLSPAN="8">
+                                 &nbsp; 
+                              </TD>
+                           </TR>
+                        </TABLE>
+                        <!--CLOSE OF BUTTON HTML//-->
+                     </TD>
+                  </TR>
+               </TABLE>
+               <!--CLOSE CONTENT, AND BUTTON TABLES//-->
+            </TD>
+         </TR>
+         <!--CLOSE OF NAVIGATION, CONTENT, AND BUTTON TABLES//-->
+      </TABLE>
+   </BODY>
+</HTML> 
+<SCRIPT LANGUAGE="JSCRIPT">
+
+var tab_array = new Array();
+tab_array[0] = Default;
+tab_array[1] = Settings;
+tab_array[2] = Features;
+
+function InitDocument(document)
+{
+    setDirection();
+    if (oWizard.FindSymbol('DOCUMENT_FIRST_LOAD'))
+    {
+        // This function sets the default symbols based
+        // on the values specified in the SYMBOL tags above
+        //
+        oWizard.SetDefaults(document);
+
+        var fUnicode = oWizard.FindSymbol("UNICODE");
+        fUnicode = (fUnicode == true);
+        UNICODE.checked = fUnicode;
+    }
+
+    // Load the document and initialize the controls
+    // with the appropriate symbol values
+    //
+    oWizard.Load(document);
+    OnUnicode();
+    SetFocus();
+}
+
+// If the wizard has more than 1 page, this
+// function will browse to the page specified
+//
+function Next(document, linkto)
+{
+	oWizard.Next(document, linkto);
+}
+
+// This is an example of a function which
+// gets called when the user clicks on 'Finish'
+//
+function OnFinish(document)
+{
+	OnWizFinish(document);
+}
+
+function InitControls()
+{
+    EMPTY_PROJECT.disabled = false;
+    EMPTY_PROJECT_TITLE.disabled = false;
+    POSTBUILD_COPY.disabled = false;
+    POSTBUILD_COPY_TITLE.disabled = false;
+    PRE_COMPILED_HEADER.disabled = false;
+    PRE_COMPILED_HEADER_TITLE.disabled = false;
+    UNICODE.disabled = false;
+    UNICODE_TITLE.disabled = false;
+    MANIFEST.disabled = false;
+    MANIFEST_TITLE.disabled = false;
+    NO_DEFAULT_LIB.disabled = false;
+    NO_DEFAULT_LIB_TITLE.disabled = false;
+    VERBOSE_COMMENTS.disabled = false;
+    VERBOSE_COMMENTS_TITLE.disabled = false;
+    SUPPORT_QT.disabled = false;
+    SUPPORT_QT_TITLE.disabled = false;
+
+    PLUGIN_FLAGS_SPAN.style.display = 'none';
+    LOADER_FLAGS_SPAN.style.display = 'none';
+    PLUGIN_DBG.style.display = 'none';
+    PLUGIN_DBG_LABEL.style.display = 'none';
+
+    var strQtDir = oWizard.FindSymbol("QT_INSTALL_DIR");
+    if (strQtDir == null || strQtDir == "")
+    {
+        SUPPORT_QT.disabled = true;
+        SUPPORT_QT_TITLE.disabled = true;
+    }
+    if (PLUGIN_MODULE.checked || DECOMPILER_MODULE.checked || DEBUGGER_MODULE.checked)
+    {
+        PLUGIN_FLAGS_SPAN.style.display = 'block';
+        if (DEBUGGER_MODULE.checked)
+        {
+            PLUGIN_DBG.style.display = 'block';
+            PLUGIN_DBG_LABEL.style.display = 'block';
+        }
+        OnPluginFlags();
+    }
+    if (LOADER_MODULE.checked)
+    {
+        SUPPORT_QT.disabled = true;
+        SUPPORT_QT_TITLE.disabled = true;
+        LOADER_FLAGS_SPAN.style.display = 'block';
+        OnLoaderFlags();
+    }
+    if (PROCESSOR_MODULE.checked)
+    {
+        SUPPORT_QT.disabled = true;
+        SUPPORT_QT_TITLE.disabled = true;
+        PRE_COMPILED_HEADER.disabled = true;
+        PRE_COMPILED_HEADER_TITLE.disabled = true;
+        EMPTY_PROJECT.disabled = true;
+        EMPTY_PROJECT_TITLE.disabled = true;
+        EMPTY_PROJECT.checked = true;
+    }
+    if (SUPPORT_QT.checked)
+    {
+        PRE_COMPILED_HEADER.disabled = true;
+        PRE_COMPILED_HEADER_TITLE.disabled = true;
+        PRE_COMPILED_HEADER.checked = true;
+    }
+}
+
+function OnUnicode()
+{
+    if (UNICODE.checked)
+    {
+        oWizard.AddSymbol("UNICODE", true);
+    }
+    else
+    {
+        oWizard.AddSymbol("UNICODE", false);
+    }
+}
+
+function OnPluginFlags()
+{
+    var strPluginFlags = "";
+    if (PLUGIN_MOD.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_MOD";
+    }
+    if (PLUGIN_DRAW.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_DRAW";
+    }
+    if (PLUGIN_SEG.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_SEG";
+    }
+    if (PLUGIN_UNL.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_UNL";
+    }
+    if (PLUGIN_HIDE.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_HIDE";
+    }
+    if (PLUGIN_DBG.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_DBG";
+    }
+    if (PLUGIN_PROC.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_PROC";
+    }
+    if (PLUGIN_FIX.checked)
+    {
+        if (strPluginFlags != "")
+            strPluginFlags += "|";
+        strPluginFlags += "PLUGIN_FIX";
+    }
+    if (strPluginFlags == "")
+        strPluginFlags = "0";
+    oWizard.AddSymbol("PLUGIN_FLAGS", strPluginFlags);
+}
+
+function OnLoaderFlags()
+{
+    if (LDRF_RELOAD.checked)
+    {
+        oWizard.AddSymbol("LOADER_FLAGS", "LDRF_RELOAD");
+    }
+    else
+    {
+        oWizard.AddSymbol("LOADER_FLAGS", "0");
+    }
+}
+
+function OnAppType()
+{
+    X64_SUPPORT.checked = false;
+    EMPTY_PROJECT.checked = false;
+    POSTBUILD_COPY.checked = true;
+    PRE_COMPILED_HEADER.checked = false;
+    MANIFEST.checked = true;
+    NO_DEFAULT_LIB.checked = false;
+    POSTBUILD_COPY.checked = true;
+    VERBOSE_COMMENTS.checked = true;
+    SUPPORT_QT.checked = false;
+    if (PLUGIN_MODULE.checked || DECOMPILER_MODULE.checked || DEBUGGER_MODULE.checked)
+    {
+        PLUGIN_MOD.checked = false;
+        PLUGIN_DRAW.checked = false;
+        PLUGIN_SEG.checked = false;
+        PLUGIN_UNL.checked = false;
+        PLUGIN_HIDE.checked = false;
+        PLUGIN_PROC.checked = false;
+        PLUGIN_FIX.checked = false;
+        if (DEBUGGER_MODULE.checked)
+        {
+            PLUGIN_DBG.checked = false;
+        }
+        oWizard.AddSymbol("X86_EXTENSION", ".plw");
+        oWizard.AddSymbol("X64_EXTENSION", ".p64");
+    }
+    if (LOADER_MODULE.checked)
+    {
+        LDRF_RELOAD.checked = false;
+        oWizard.AddSymbol("X86_EXTENSION", ".ldw");
+        oWizard.AddSymbol("X64_EXTENSION", ".l64");
+    }
+    if (PROCESSOR_MODULE.checked)
+    {
+        oWizard.AddSymbol("X86_EXTENSION", ".w32");
+        oWizard.AddSymbol("X64_EXTENSION", ".w64");
+    }
+    InitControls();
+    ToggleImage();
+}
+
+function OnEmptyProject()
+{
+    if (!EMPTY_PROJECT.disabled)
+    {
+        if (EMPTY_PROJECT.checked)
+        {
+            POSTBUILD_COPY.disabled = true;
+            POSTBUILD_COPY_TITLE.disabled = true;
+            PRE_COMPILED_HEADER.disabled = true;
+            PRE_COMPILED_HEADER_TITLE.disabled = true;
+            MANIFEST.disabled = true;
+            MANIFEST_TITLE.disabled = true;
+            SUPPORT_QT.disabled = true;
+            SUPPORT_QT_TITLE.disabled = true;
+        }
+        else
+        {
+            if (PLUGIN_MODULE.checked || DECOMPILER_MODULE.checked || DEBUGGER_MODULE.checked)
+            {
+                EMPTY_PROJECT.disabled = false;
+                EMPTY_PROJECT_TITLE.disabled = false;
+                POSTBUILD_COPY.disabled = false;
+                POSTBUILD_COPY_TITLE.disabled = false;
+                PRE_COMPILED_HEADER.disabled = false;
+                PRE_COMPILED_HEADER_TITLE.disabled = false;
+                MANIFEST.disabled = false;
+                MANIFEST_TITLE.disabled = false;
+                SUPPORT_QT.disabled = false;
+                SUPPORT_QT_TITLE.disabled = false;
+            }
+        }
+    }
+}
+
+function OnNoDefaultLib()
+{
+    InitControls();
+}
+
+function OnQtChange()
+{
+    if (PLUGIN_MODULE.checked || DECOMPILER_MODULE.checked || DEBUGGER_MODULE.checked)
+    {
+        if (!SUPPORT_QT.checked)
+        {
+            PRE_COMPILED_HEADER.disabled = false;
+            PRE_COMPILED_HEADER_TITLE.disabled = false;
+        }
+        else
+        {
+            PRE_COMPILED_HEADER.disabled = true;
+            PRE_COMPILED_HEADER_TITLE.disabled = true;
+        }
+    }
+    if (PRE_COMPILED_HEADER.disabled)
+    {
+        PRE_COMPILED_HEADER.checked = true;
+    }
+}
+
+function SetFocus()
+{
+    if (PLUGIN_MODULE.checked)
+    {
+        PLUGIN_MODULE.focus();
+    }
+    else if (DECOMPILER_MODULE.checked)
+    {
+        DECOMPILER_MODULE.focus();
+    }
+    else if (DEBUGGER_MODULE.checked)
+    {
+        DEBUGGER_MODULE.focus();
+    }
+    else if (LOADER_MODULE.checked)
+    {
+        LOADER_MODULE.focus();
+    }
+    else if (PROCESSOR_MODULE.checked)
+    {
+        PROCESSOR_MODULE.focus();
+    }
+}
+
+function ToggleImage()
+{
+    PROCESSOR_MODULE_IMAGE.style.display = 'none';
+    PLUGIN_MODULE_IMAGE.style.display = 'none';
+    LOADER_MODULE_IMAGE.style.display = 'none';
+    DEBUGGER_MODULE_IMAGE.style.display = 'none';
+    DECOMPILER_MODULE_IMAGE.style.display = 'none';
+
+    if (oWizard.FindSymbol("PLUGIN_MODULE"))
+    {
+        PLUGIN_MODULE_IMAGE.style.display = 'block';
+    }
+    else if (oWizard.FindSymbol("DECOMPILER_MODULE"))
+    {
+        DECOMPILER_MODULE_IMAGE.style.display = 'block';
+    }
+    else if (oWizard.FindSymbol("DEBUGGER_MODULE"))
+    {
+        DEBUGGER_MODULE_IMAGE.style.display = 'block';
+    }
+    else if (oWizard.FindSymbol("LOADER_MODULE"))
+    {
+        LOADER_MODULE_IMAGE.style.display = 'block';
+    }
+    else if (oWizard.FindSymbol("PROCESSOR_MODULE"))
+    {
+        PROCESSOR_MODULE_IMAGE.style.display = 'block';
+    }
+}
+</SCRIPT> 
+<SCRIPT ID="INCLUDE_SCRIPT" LANGUAGE="JSCRIPT"></SCRIPT> 
+<SCRIPT ID="INCLUDE_COMMON" LANGUAGE="JSCRIPT"></SCRIPT> 
+
+<!-- 
+Common.js is a script file which contains the helper functions 
+used by the wizards.  Include this line if you want to
+call these functions from your html scripts.
+//-->
+<SCRIPT>
+    function GetCommonScriptPath()
+    {
+        var strPath = oWizard.FindSymbol("PRODUCT_INSTALLATION_DIR");
+        strPath += "VCWizards/";
+        strPath += oWizard.GetHostLocale();
+        // verify if the locale folder really exists
+        var fso = new ActiveXObject("Scripting.FileSystemObject");
+        var found = fso.FolderExists(strPath)
+        if (found == false)
+        {
+            strPath = oWizard.FindSymbol("PRODUCT_INSTALLATION_DIR");
+            strPath += "VCWizards/";
+            var folder = fso.GetFolder(strPath);
+            for (subfolders = new Enumerator(folder.SubFolders); !subfolders.atEnd(); subfolders.moveNext())
+            {
+                for (files = new Enumerator(subfolders.item().files); !files.atEnd(); files.moveNext())
+                {
+                    if (files.item().name.toLowerCase().localeCompare("common.js") == 0)
+                    {
+                        found = true;
+                        strPath += subfolders.item().name;
+                        break;
+                    }
+                }
+                if (found == true)
+                    break;
+            }
+            oWizard.ReportError("Found Path: " + strPath);
+        }
+        return (strPath);
+    }
+    var strPath = oWizard.FindSymbol("SCRIPT_COMMON_PATH");
+    if (strPath != null && strPath != "")
+    {
+        document.scripts("INCLUDE_SCRIPT").src = strPath + "/Script.js";
+        document.scripts("INCLUDE_COMMON").src = strPath + "/Common.js";
+    }
+    else
+    {
+        var strPath = GetCommonScriptPath();
+        document.scripts("INCLUDE_SCRIPT").src = strPath + "/Script.js";
+        document.scripts("INCLUDE_COMMON").src = strPath + "/Common.js";
+    }
+</SCRIPT> 

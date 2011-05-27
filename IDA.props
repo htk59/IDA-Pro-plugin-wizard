@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+    <When Condition="'$(IdaInstallDir)' == '' and Exists($(IDADIR))">
+      <PropertyGroup>
+        <!-- Default IdaInstallDir -->
+        <IdaInstallDir Condition="'$(IdaInstallDir)' == ''">$(IDADIR)</IdaInstallDir>
+      </PropertyGroup>
+    </When>
+    <When Condition="'$(IdaInstallDir)' == ''">
+      <PropertyGroup>
+        <IdaInstallDir>$(ProgramFiles)\IDA\</IdaInstallDir>
+      </PropertyGroup>
+    </When>
+  </Choose>
+
+  <Choose>
+    <When Condition="'$(IdaSdkInstallDir)' == '' and Exists($(IDASDK))">
+      <PropertyGroup>
+        <IdaSdkInstallDir Condition="'$(IdaSdkInstallDir)' == ''">$(IDASDK)</IdaSdkInstallDir>
+    </PropertyGroup>
+    </When>
+    <When Condition="'$(IdaSdkInstallDir)' == ''">
+      <PropertyGroup>
+        <IdaSdkInstallDir Condition="'$(IdaSdkInstallDir)' == ''">$(ProgramFiles)\IDA\SDK\5.7\</IdaSdkInstallDir>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  
+  <Choose>
+    <When Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(Configuration), '[Dd]ebug'))">
+      <PropertyGroup>
+        <DebugSuffix>-d</DebugSuffix>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <DebugSuffix></DebugSuffix>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <PropertyGroup>
+    <IdaInstallDir Condition="'$(IdaInstallDir)' != '' and !HasTrailingSlash('$(IdaInstallDir)')">$(IdaInstallDir)\</IdaInstallDir>
+
+    <IdaBinaryDir Condition="'$(IdaBinaryDir)' == ''">$(IdaInstallDir)Bin\</IdaBinaryDir>
+    <IdaBinaryDir Condition="'$(IdaBinaryDir)' != '' and !HasTrailingSlash('$(IdaBinaryDir)')">$(IdaBinaryDir)\</IdaBinaryDir>
+    
+    <IdaPluginDir Condition="'$(IdaPluginDir)' == ''">$(IdaInstallDir)Plugins\</IdaPluginDir>
+    <IdaPluginDir Condition="'$(IdaPluginDir)' != '' and !HasTrailingSlash('$(IdaPluginDir)')">$(IdaPluginDir)\</IdaPluginDir>
+    
+    <IdaLoaderDir Condition="'$(IdaLoaderDir)' == ''">$(IdaInstallDir)Loaders\</IdaLoaderDir>
+    <IdaLoaderDir Condition="'$(IdaLoaderDir)' != '' and !HasTrailingSlash('$(IdaLoaderDir)')">$(IdaLoaderDir)\</IdaLoaderDir>
+    
+    <IdaProcDir Condition="'$(IdaProcDir)' == ''">$(IdaInstallDir)Procs\</IdaProcDir>
+    <IdaProcDir Condition="'$(IdaProcDir)' != '' and !HasTrailingSlash('$(IdaProcDir)')">$(IdaProcDir)\</IdaProcDir>
+
+    <IdaSdkInstallDir Condition="'$(IdaSdkInstallDir)' != '' and !HasTrailingSlash('$(IdaSdkInstallDir)')">$(IdaSdkInstallDir)\</IdaSdkInstallDir>
+    
+    <IdaSdkIncludeDir Condition="'$(IdaSdkIncludeDir)' == ''">$(IdaSdkInstallDir)Include\</IdaSdkIncludeDir>
+    <IdaSdkIncludeDir Condition="'$(IdaSdkIncludeDir)' != '' and !HasTrailingSlash('$(IdaSdkIncludeDir)')">$(IdaSdkIncludeDir)\</IdaSdkIncludeDir>
+    
+    <IdaSdkLibraryDir Condition="'$(IdaSdkLibraryDir)' == ''">$(IdaSdkInstallDir)Lib\</IdaSdkLibraryDir>
+    <IdaSdkLibraryDir Condition="'$(IdaSdkLibraryDir)' != '' and !HasTrailingSlash('$(IdaSdkLibraryDir)')">$(IdaSdkLibraryDir)\</IdaSdkLibraryDir>
+  </PropertyGroup>
+</Project>

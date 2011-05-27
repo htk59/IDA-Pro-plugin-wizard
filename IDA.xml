@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties">
+  <Rule Name="IDAProSettings" PageTemplate="generic" SwitchPrefix="/" Order="1"
+        xmlns="http://schemas.microsoft.com/build/2009/properties"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <Rule.DisplayName>
+      <sys:String>IDA Pro Settings</sys:String>
+    </Rule.DisplayName>
+    
+    <Rule.Categories>
+      <Category Name="IDAPro">
+        <Category.DisplayName>
+          <sys:String>IDA Pro</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category Name="IDASdk">
+        <Category.DisplayName>
+          <sys:String>IDA SDK</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category Name="IDABuild">
+        <Category.DisplayName>
+          <sys:String>Custom Build additions</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+
+    <Rule.DataSource>
+      <DataSource Persistence="UserFile" />
+    </Rule.DataSource>
+
+    <StringProperty Name="IdaInstallDir" Category="IDAPro" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Install Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler Install directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaBinaryDir" Category="IDAPro" Default="$(IdaInstallDir)bin\" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Executable Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler executable directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaPluginDir" Category="IDAPro" Default="$(IdaInstallDir)plugins\" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Plugins Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler plugin modules (including the processor module extension plugins) directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaLoaderDir" Category="IDAPro" Default="$(IdaInstallDir)Loaders\" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Loaders Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler input file loader modules directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaProcDir" Category="IDAPro" Default="$(IdaInstallDir)Procs\" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Processor Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler processor modules directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    
+    <EnumProperty Name="IdaSdkVersion" Category="IDASdk">
+      <EnumProperty.DisplayName>
+        <sys:String>Version</sys:String>
+      </EnumProperty.DisplayName>
+      <EnumProperty.Description>
+        <sys:String>Specifies the SDK used for building the current configuration; If not set, the default SDK is used.</sys:String>
+      </EnumProperty.Description>
+      <EnumValue Name="6.1" DisplayName="IDA Pro 6.1.0.110408" Description="This SDK should be used with IDA kernel version 6.1.0.110408" />
+      <EnumValue Name="6.0" DisplayName="IDA Pro 6.0.0.101130" Description="This SDK should be used with IDA kernel version 6.0.0.101130" />
+      <EnumValue Name="5.7" DisplayName="IDA Pro 5.7.0.935" Description="This SDK should be used with IDA kernel version 5.7.0.935" />
+      <EnumValue Name="5.6" DisplayName="IDA Pro 5.6.0.931" Description="This SDK should be used with IDA kernel version 5.6.0.931" />
+      <EnumValue Name="5.5" DisplayName="IDA Pro 5.5.0.925" Description="This SDK should be used with IDA kernel version 5.5.0.925" />
+      <EnumValue Name="5.4" DisplayName="IDA Pro 5.4.0.921" Description="This SDK should be used with IDA kernel version 5.4.0.921" />
+      <EnumValue Name="5.2" DisplayName="IDA Pro 5.2.0.098" Description="This SDK should be used with IDA kernel version 5.2.0.098" />
+      <EnumValue Name="5.1" DisplayName="IDA Pro 5.1.0.899" Description="This SDK should be used with IDA kernel version 5.1.0.899" />
+    </EnumProperty>
+    <StringProperty Name="IdaSdkInstallDir" Category="IDASdk" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Install Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a relative path to the Interactive Disassembler Module SDK directory.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaSdkIncludeDir" Category="IDASdk" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Include Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Default>
+        <sys:String>$(IdaSdkInstallDir)Include\</sys:String>
+      </StringProperty.Default>
+      <StringProperty.Description>
+        <sys:String>Path to use when searching for include files while building a IDA Pro module.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+    <StringProperty Name="IdaSdkLibraryDir" Category="IDASdk" Subtype="folder">
+      <StringProperty.DisplayName>
+        <sys:String>Library Directory</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Default>
+        <sys:String>$(IdaSdkInstallDir)Lib\</sys:String>
+      </StringProperty.Default>
+      <StringProperty.Description>
+        <sys:String>Path to use when searching for library files while building a IDA Pro module.</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+	
+    <StringProperty Name="DebugSuffix" Category="IDABuild">
+      <StringProperty.DisplayName>
+        <sys:String>Debug Suffix</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Specifies a debug suffix to append to the file name that this project will generate. (Example: -d).</sys:String>
+      </StringProperty.Description>
+    </StringProperty>
+  </Rule>
+</ProjectSchemaDefinitions>

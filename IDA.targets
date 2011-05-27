@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      $(BuildDependsOn);
+      IDAProTarget
+    </BuildDependsOn>
+
+    <TargetName>$(ProjectName)-$(IdaSdkVersion)$(DebugSuffix)</TargetName>
+  </PropertyGroup>
+
+  <Target Name="IDAProTarget" DependsOnTargets="$(PrepareForBuildDependsOn)">
+
+    <PropertyGroup>
+      <IdaInstallDir>$(IdaInstallDir)</IdaInstallDir>
+      <IdaSdkInstallDir>$(IdaSdkInstallDir)</IdaSdkInstallDir>
+      <IdaSdkVersion>$(IdaSdkVersion)</IdaSdkVersion>
+    </PropertyGroup>
+
+    <SetEnv Condition="'$(IDADIR)' == '' or '$(IDADIR)' != '$(IdaInstallDir)'"
+            Name   ="IDADIR"
+            Value  ="$(IdaInstallDir)"
+            Prefix ="false">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="IDADIR"/>
+    </SetEnv>
+
+    <SetEnv Condition="'$(IDASDK)' == '' or '$(IDASDK)' != '$(IdaSdkInstallDir)'"
+            Name   ="IDASDK"
+            Value  ="$(IdaSdkInstallDir)"
+            Prefix ="false" >
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="IDASDK"/>
+    </SetEnv>
+  </Target>
+</Project>
