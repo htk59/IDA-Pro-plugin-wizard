@@ -1,0 +1,18 @@
+This is a IDA Pro plugin wizard for Visual Studio 2010.
+All appropriate compiler and linker options are configured by the wizard.
+(The wizard can be used on other visual studio from 2002 thru 2010 compilers)
+
+IDA Pro plugin wizard ver 1.0.0.1 - initial release
+
+The wizard can currently create:
+    * plugin modules
+    * debugger plugin modules
+Soon to be completed the wizard will be able to create:
+    * processor modules
+    * loader modules
+    * hex-rays modules
+
+The zip file contains:
+* Put Contents into AppWiz    - folder
+* Put Contents into vcproject - folder
+* readme.txt    - this file
